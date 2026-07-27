@@ -1,0 +1,9 @@
+Version history
+
+1.1   2014-04-28
+Bug fix: reduced key used when not necessary
+Removed unnecessary debug message
+Removed version of jar without crypto function jar - not needed
+
+1.0   2013-09-17
+Initial release

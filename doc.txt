@@ -1,0 +1,113 @@
+Summary
+-------
+
+AESTextCrypt is a simple open-source tool for encrypting and decrypting text. Primarily
+intended for use with email, use it wherever you need to protect text from prying eyes.
+The encrypted text can be copy/pasted into any text-handling application (e.g. email)
+instead of plain text. Convenience buttons are provided for clipboard operations.
+All operations take place in memory - nothing is written to disk.
+
+AESTextCrypt uses AES-256 bit encryption which is the strongest commercially available
+encryption scheme. In addition it employs bcrypt, which implements key stretching
+and an adaptive key setup phase. This makes it very resistant to dictionary attack.
+(See "key stretching" on Wikipedia for more information.)
+
+The password can be any length and any combination of characters that can be entered
+from the keyboard. By choosing a reasonably long and complex password, the encrypted
+text will be essentially uncrackable - within the lifetime of this universe at least.
+
+AESTextCrypt is written in Java, so can be run on desktop platforms - Windows, Mac
+and Linux.
+
+Contents of distribution zip file
+---------------------------------
+
+aestextcrypt.jar       executable jar with bc provider
+doc.txt                this file
+history.txt            version history
+legal.txt              legal notices
+
+Installation
+------------
+
+1. Extract the executable jar into a suitable directory
+2. On Linux, mark it executable.
+
+Execution
+---------
+
+Run (open) the executable jar using the Java runtime. On some systems it is
+sufficient just to double-click if the Java runtime is the default program
+for jar files.
+
+On Windows and Mac, accept the warning relating to an "unknown Java program".
+
+How to use
+----------
+
+Encrypting:
+
+Type or copy/paste your text into the text window
+Enter a password and click "Encrypt"
+Click "Copy to clipboard" to put the encrypted text on the clipboard
+Paste to wherever you want
+
+Decrypting:
+
+Copy the encrypted text from wherever it is to the clipboard
+Click "Paste from clipboard" to put the encrypted text into the text window
+Enter the password and click "Decrypt"
+If you supplied the wrong password and decryption fails, you can try again by
+clicking "Undo" and re-entering the password
+
+Reduced key length
+------------------
+
+The default encryption key length is 256 bits, the highest current available.
+However, some systems may not support encryption or decryption above a 128 bit key.
+
+If the encrypting system does not support full length keys, this is automatically
+detected and the key length reduced to 128. A check mark will appear beside
+"Reduced key length" to indicate this. 
+
+Decryption automatically detects if 128 bit encryption was used, and a check mark
+will appear beside "Reduced key length" to indicate this. 
+
+If the decrypting system does not support full length keys, then it will not
+be able to decrypt text that was encrypted with a 256 bit key. If you are
+encrypting text to send to such a system, check the "Reduced key length" checkbox
+to force encryption with the shorter key.
+
+In summary, if encryption or decryption detects that 128 bit encryption is
+necessary, a check mark will automatically appear beside "Reduced key length".
+However, if you need to force 128 bit encryption because the system would
+otherwise use 256 bit, manually check the "Reduced key length" checkbox.
+
+To support 256 bit keys, your system needs to have the JCE Unlimted Strength Policy
+files installed. These can be downloaded from the Oracle Java website.
+
+Why you shouldn't worry about using "only" a 128 bit key
+--------------------------------------------------------
+
+Even if you are forced to choose encryption using a 128 bit key, it really is
+perfectly good enough. The universe will still have come to an end before anyone
+is likely to crack it. It isn't that a 128 bit key isn't strong enough, rather
+that 256 bit encryption is ridiculouly strong, far more than is really necessary.
+
+(For an interesting explanation of this subject, take a look at this: 
+http://blog.agilebits.com/2013/03/09/guess-why-were-moving-to-256-bit-aes-keys)
+
+Passwords
+---------
+
+Don't choose a short or trivial password - guessing your password is the only
+way a cracker has of breaking the encryption. The more characters you use the
+better, and the more variation the better. And for this program you can use any
+characters that can be entered through the keyboard, including spaces.
+
+The main problem with complex passwords or passphrases is remembering them. There
+is plenty of advice on the internet for creating memorable passwords (e.g. 
+http://windows.microsoft.com/en-gb/windows-vista/tips-for-creating-a-strong-password)
+so use it!
+
+Chris Wood
