@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_171 (Oracle Corporation)
+Main-Class: com.ceperman.textcrypt.TextCrypt
+Class-Path: bcprov-jdk15on-149.jar
+
